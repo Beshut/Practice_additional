@@ -1,40 +1,35 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ConsoleApplication1
+class Program
 {
-    class Program
+    private static void BubbleSort(int[] array)//обьявление рекурсивной функции
     {
-        static void Main(string[] args)
-        {
-            short d = 10, f = 12;//обьявление переменных типа short и присванивание им значения
-            bool var1 = true, var2 = false;//обьявление переменных типа bool и присванивание им значения
+        for (int i = 0; i < array.Length; i++)//условный оператор, выполняется пока i < array.Length
+            for (int j = 0; j < array.Length - 1; j++)//условный оператор, выполняется пока j < array.Length
+                if (array[j] > array[j + 1])//условный оператор, выполняется если array[j] > array[j + 1]
+                {
+                    int t = array[j + 1];//обьявление и присвоение значения переменной
+                    array[j + 1] = array[j];//присвоение значения элемента массива
+                    array[j] = t;//присвоение значения элемента массива
+                }
+    }
 
-            if (d < f)//условный оператор,выполняется если d < f
-                Console.WriteLine("d < f");//вывод на экран сообщения пользователю
-            if (d <= f)//условный оператор,выполняется если d <= f
-                Console.WriteLine("d <= f");//вывод на экран сообщения пользователю
-            if (d != f)//условный оператор,выполняется если d не равно f
-                Console.WriteLine("d != f");//вывод на экран сообщения пользователю
+    public static void Main()
+    {
+        int[] array = {//обьявление и заполнение массива
+        5,
+        3,
+        4,
+        9,
+        7,
+        2,
+        1,
+        8,
+        6
+    };
+        BubbleSort(array);//использование рекурсивной функции
+        foreach (int e in array)//оператор перебора элементов массива
+            Console.WriteLine(e);//вывод на экран сообщения пользователю
 
-            // Следующее условие не выполнится
-            if (d > f)//условный оператор,выполняется если d > f
-                Console.WriteLine("d > f");//вывод на экран сообщения пользователю
-
-            // Сравниванием переменные var1 и var2
-            if (var1 & var2)//условный оператор,выполняется если получили true
-                Console.WriteLine("Данный текст не выведется");//вывод на экран сообщения пользователю
-            if (!(var1 & var2))//условный оператор,выполняется если получили true
-                Console.WriteLine("!(var1 & var2) = true");//вывод на экран сообщения пользователю
-            if (var1 | var2)//условный оператор,выполняется если получили true
-                Console.WriteLine("var1 | var2 = true");//вывод на экран сообщения пользователю
-            if (var1 ^ var2)//условный оператор,выполняется если получили true
-                Console.WriteLine("var1 ^ var2 = true");
-
-            Console.ReadLine();//ожидание нажатия клавиши
-        }
-
+        Console.ReadKey();//ожидание нажатия клавиши
     }
 }
