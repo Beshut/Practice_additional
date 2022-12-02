@@ -10,7 +10,7 @@ class Program
         var length = end - start + 1;//обьявление и присвоение значения переменной
         for (int i = 0; i < length; i++)//условный оператор, выполняется пока i < length
         {
-            if (rightPtr > end(leftPtr <= middle && array[leftPtr] < array[rightPtr]))//условный оператор, выполняется если rightPtr > end  (leftPtr <= middle && array[leftPtr] < array[rightPtr])
+            if (rightPtr > end || leftPtr <= middle && array[leftPtr] < array[rightPtr])//условный оператор, выполняется если rightPtr > end  (leftPtr <= middle && array[leftPtr] < array[rightPtr])
             {
                 temporaryArray[i] = array[leftPtr];//присвоение значения элемента массива
                 leftPtr++;//увеличение переменной на единицу
