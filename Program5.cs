@@ -1,53 +1,16 @@
 using System;
-namespace HeapSortDemo
+class Program
 {
-    public class example
+    static void Main(string[] args)
     {
-        static void heapSort(int[] arr, int n)//обьявление рекурсивной функции
-        {
-            for (int i = n / 2 - 1; i >= 0; i--)//условный оператор, выполняется пока i >= 0
-                heapify(arr, n, i);//использование рекурсивной функции
-            for (int i = n - 1; i >= 0; i--)//условный оператор, выполняется пока i >= 0
-            {
-                int temp = arr[0];//обьявление и присвоение значения переменной
-                arr[0] = arr[i];//присвоение значения элемента массива
-                arr[i] = temp;//присвоение значения элемента массива
-                heapify(arr, i, 0);//использование рекурсивной функции
-            }
-        }
-        static void heapify(int[] arr, int n, int i)//обьявление рекурсивной функции
-        {
-            int largest = i;//обьявление и присвоение значения переменной
-            int left = 2 * i + 1;//обьявление и присвоение значения переменной
-            int right = 2 * i + 2;//обьявление и присвоение значения переменной
-            if (left < n && arr[left] > arr[largest])//условный оператор, выполняется если left < n && arr[left] > arr[largest]
-                largest = left;//присвоение значение переменной
-            if (right < n && arr[right] > arr[largest])//условный оператор, выполняется если right < n && arr[right] > arr[largest]
-                largest = right;//присвоение значения переменной
-            if (largest != i)//условный оператор, выполняется если largest != i
-            {
-                int swap = arr[i];//обьявление и присвоение значения переменной
-                arr[i] = arr[largest];//присвоение значения элемента массива
-                arr[largest] = swap;//присвоение значения элемента массива
-                heapify(arr, n, largest);//использование рекурсивной функции
-            }
-        }
-        public static void Main()
-        {
-            int[] arr = { 55, 25, 89, 34, 12, 19, 78, 95, 1, 100 };//обьявление и заполнение массива
-            int n = 10, i;//обьявление переменных, присвоение значения переменной n
-            Console.WriteLine("Heap Sort");//вывод на экран сообщения пользователю
-            Console.Write("Initial array is: ");//вывод на экран сообщения пользователю
-            for (i = 0; i < n; i++)//условный оператор, выполняется пока i < n
-            {
-                Console.Write(arr[i] + " ");//вывод на экран сообщения пользователю
-            }
-            heapSort(arr, 10);//использование рекурсивной функции
-            Console.Write("\nSorted Array is: ");//вывод на экран сообщения пользователю
-            for (i = 0; i < n; i++)//условный оператор, выполняется пока i < n
-            {
-                Console.Write(arr[i] + " ");//вывод на экран сообщения пользователю
-            }
-        }
+        string s10 = "Area";//обьявление и заполнение переменной типа string
+        string s11 = " 51";//обьявление и заполнение переменной типа string
+        Console.WriteLine("Concat by +: " + s10 + s11);//вывод на экран сообщения пользователю
+        Console.WriteLine("Concat by Concat(): " + string.Concat(s10, s11));//вывод на экран сообщения пользователю, использование метода Concat  для обьединения строк
+        string[] sArr1 = { "First ", "Second ", "Third " };//обьявление и заполнение массива типа string
+        Console.WriteLine(string.Concat(sArr1));//вывод на экран сообщения пользователю, использование метода Concat  для обьединения массива в строку
+        string[] sArr2 = { "First", "Second", "Third" };//обьявление и заполнение массива типа string
+        Console.WriteLine("Join elements in array by Join() with space: " + string.Join(" ", sArr2));//вывод на экран сообщения пользователю, использование метода Join для обьединения массива в строку
+        Console.WriteLine("Join elements in array by Join() with <->: " + string.Join("<->", sArr2));//вывод на экран сообщения пользователю, использование метода Join для обьединения массива в строку, между словами ставится знак "<->"
     }
 }
